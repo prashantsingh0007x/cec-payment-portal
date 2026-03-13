@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Competitive Examination Cell (CEC)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <div class="logo">CEC - Parul University</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#stats">Statistics</a></li>
+        <li><a href="index.html#placement">Achievements</a></li>
+        <li><a href="index.html#benefits">Benefits</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Registration Form -->
+  <section class="hero" style="padding: 3rem 2rem;">
+    <div class="container">
+      <h1 style="color: white; margin-bottom: 0.5rem;">Join the Program</h1>
+      <p style="color: rgba(255,255,255,0.9);">Complete your registration in just a few steps</p>
+    </div>
+  </section>
+
+  <div class="form-container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm" onsubmit="validateRegistrationForm(event)">
+      
+      <!-- Institute Name -->
+      <div class="form-group">
+        <label for="instituteName">Institute Name</label>
+        <input 
+          type="text" 
+          id="instituteName" 
+          name="instituteName" 
+          value="C.V Raman Institute of Technology" 
+          disabled
+          readonly
+        >
+        <small style="color: var(--text-light);">Pre-filled from your college registration</small>
+      </div>
+
+      <!-- Enrollment Number -->
+      <div class="form-group">
+        <label for="enrollmentNumber">Enrollment Number</label>
+        <input 
+          type="text" 
+          id="enrollmentNumber" 
+          name="enrollmentNumber" 
+          placeholder="Enter your enrollment number"
+        >
+        <div class="error-message" id="enrollmentError"></div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Enter your email address"
+        >
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input 
+          type="text" 
+          id="phone" 
+          name="phone" 
+          placeholder="Enter your phone number"
+        >
+      </div>
+
+      <!-- Privacy Policy Checkbox -->
+      <div class="form-group">
+        <div class="checkbox-group">
+          <input 
+            type="checkbox" 
+            id="privacyCheckbox" 
+            name="privacy"
+          >
+          <label for="privacyCheckbox">
+            I understand that this payment is one-time and non-refundable.
+          </label>
+        </div>
+        <div class="error-message" id="privacyError"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-secondary btn-block">Continue to Payment</button>
+
+      <!-- Back to Home -->
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="index.html" style="color: var(--text-light); text-decoration: none;">← Back to Home</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Competitive Examination Cell (CEC). All rights reserved.</p>
+      <p>Conducted by Parul University for C.V Raman Institute of Technology</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
