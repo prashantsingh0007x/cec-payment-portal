@@ -67,6 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
   if (timerElement) {
     startPaymentTimer();
   }
+
+  // Setup Verify Payment Button
+  setupVerifyPaymentButton();
+
+  // Handle Payment Verification State on Landing Page
+  handlePaymentVerificationState();
 });
 
 // Payment Timer Function
@@ -98,4 +104,63 @@ function startPaymentTimer() {
 
     timeLeft--;
   }, 1000);
+}
+
+// Verify Payment Function - Shows Processing Screen
+function setupVerifyPaymentButton() {
+  const verifyBtn = document.getElementById('verifyPaymentBtn');
+  const processingScreen = document.getElementById('processingScreen');
+
+  if (!verifyBtn) return;
+
+  verifyBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Show processing screen
+    processingScreen.classList.remove('hidden');
+
+    // Stop the payment timer if it's running
+    // This is handled by the fact that we navigate away
+
+    // Wait 6 seconds and redirect
+    setTimeout(() => {
+      // Store in sessionStorage that payment was verified
+      sessionStorage.setItem('paymentVerified', 'true');
+      
+      // Redirect to landing page
+      window.location.href = 'index.html';
+    }, 6000); // 6 seconds
+  });
+}
+
+// Check if coming from payment verification and update UI
+function handlePaymentVerificationState() {
+  const profileSection = document.getElementById('profileSection');
+  const registerBtn = document.getElementById('registerBtn');
+  
+  // Check if payment was verified
+  const isPaymentVerified = sessionStorage.getItem('paymentVerified');
+
+  if (isPaymentVerified) {
+    // Show profile section
+    if (profileSection) {
+      profileSection.classList.remove('hidden');
+    }
+
+    // Update register button to "Already Registered"
+    if (registerBtn) {
+      registerBtn.textContent = 'Already Registered';
+      registerBtn.classList.remove('btn-primary');
+      registerBtn.classList.add('btn-info', 'btn-disabled');
+      registerBtn.href = '#';
+      registerBtn.onclick = function(e) {
+        e.preventDefault();
+        return false;
+      };
+    }
+
+    // Clear the verification flag after showing
+    // Optional: keep it in sessionStorage for the session duration
+    // sessionStorage.removeItem('paymentVerified');
+  }
 }

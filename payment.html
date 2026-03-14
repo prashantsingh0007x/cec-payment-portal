@@ -40,10 +40,31 @@
       <!-- QR Code Section -->
       <div class="qr-code-container">
         <img src="images/qr.png" alt="Payment QR Code" class="qr-code-image">
+        <!-- Invisible Verify Payment Button -->
+        <button id="verifyPaymentBtn" class="btn-verify-payment-invisible">Verify Payment</button>
       </div>
 
       <!-- Instruction Text -->
       <p class="payment-instruction">Open your preferred UPI app and scan the QR code to proceed with the payment.</p>
+
+      <!-- UPI Payment Apps -->
+      <div class="upi-apps-section">
+        <p class="upi-label">Or Pay Using:</p>
+        <div class="upi-apps-container">
+          <a href="#" class="upi-app-icon" title="Google Pay">
+            <span class="app-logo">🔵</span>
+            <span class="app-name">Google Pay</span>
+          </a>
+          <a href="#" class="upi-app-icon" title="PhonePe">
+            <span class="app-logo">💜</span>
+            <span class="app-name">PhonePe</span>
+          </a>
+          <a href="#" class="upi-app-icon" title="Paytm">
+            <span class="app-logo">🟦</span>
+            <span class="app-name">Paytm</span>
+          </a>
+        </div>
+      </div>
 
       <!-- Timer Section -->
       <div class="payment-timer-section">
@@ -71,6 +92,15 @@
       <p><strong>Program Fee:</strong> ₹10,000</p>
     </div>
   </footer>
+
+  <!-- Processing Screen -->
+  <div id="processingScreen" class="processing-screen hidden">
+    <div class="processing-content">
+      <div class="spinner"></div>
+      <h2 class="processing-title">Processing Payment...</h2>
+      <p class="processing-text">Please wait while we verify your transaction.</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
